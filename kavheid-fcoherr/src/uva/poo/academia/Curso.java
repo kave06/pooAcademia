@@ -1,5 +1,7 @@
 package uva.poo.academia;
 
+
+import java.time.*;
 /**
  * 
  * @author kave Heidarieh
@@ -11,6 +13,9 @@ public class Curso {
 	int id;
 	String idioma;
 	int nivel;
+	LocalDate fechaInicio;
+	LocalDate fechaFin;
+	LocalTime horaInicio;
 	
 
 }
