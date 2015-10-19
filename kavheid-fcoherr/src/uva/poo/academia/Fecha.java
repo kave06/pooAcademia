@@ -1,5 +1,11 @@
 package uva.poo.academia;
 
+
+/**
+ * Representa fechas de calendario.
+ * @author kave
+ *
+ */
 public class Fecha {
 	
 	private int dia;
@@ -11,6 +17,10 @@ public class Fecha {
 		this.mes = mes;
 		this.anyo = anyo;
 	}
+	
+	
+	
+	
 	
 	public int getDia() {
 		return dia;
