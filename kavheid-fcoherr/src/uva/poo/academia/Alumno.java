@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * @author kave Heidarieh
+ * @author Kave Heidarieh
  * @author Fco. Javier Herrero
  * Representa a los alumnos de una academia.
  *
@@ -26,18 +26,26 @@ public class Alumno {
 	}
 	
 	/**
-	 * Añade un curso al alumno.
+	 * Añade a {@code this} al curso.
 	 * @param curso, añade el curso a la lista de cursos del alumno
 	 */
-	public void añadeCurso(Curso curso){
+	public void meteAlumnoACurso(Curso curso){
 		listaCurso.add(curso);
 	}
 	
-	//public void añadeMatricula()
 	
 	/**
 	 * Informa de la deuda del alumno
 	 * @return devuelve la deuda del alumno.
 	 */
 
+	/**
+	 * Imprime los atributos de alumno
+	 * @return atributos de alumno
+	 */
+	@Override
+	public String toString(){
+		return "Nombre: " + nombre + "\n" + "primer apellido: " + apellido1 + ", segundo apellido: " + apellido2 +
+				"\n" + "dni: " + dni;
+	}
 }

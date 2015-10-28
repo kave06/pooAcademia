@@ -22,24 +22,23 @@ public class Curso {
 	private LocalTime horaInicio;
 	private int maximoAlumnos;
 	private double precioMatricula;
-//	private Map<Integer, Idioma> map = new HashMap<Integer, Idioma>();
-	ArrayList<Integer> idCursos = new ArrayList<>();
+	// Guarda el id de los cursos creados. Es unico para todos los cursos.
+	private static ArrayList<Integer> idCursos = new ArrayList<>();
+	private ArrayList<Alumno> listaAlumnos = new ArrayList<>();
 
-	public Curso(Idioma idioma, int nivel, LocalDate fechaInicio, LocalDate fechaFin,
-				LocalTime horaInicio, int maximoAlumnos,double precioMatricula){
+	public Curso(Idioma idioma, int nivel,int i_anyo, int i_mes, int i_dia, int f_anyo, int f_mes, int f_dia,
+				int hora, int minutos, int maximoAlumnos,double precioMatricula){
 		
 		id = idCursos.size() +101;
 		idCursos.add(id);
 		this.idioma = idioma;
 		this.nivel = nivel;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
-		this.horaInicio = horaInicio;
+		this.fechaInicio = LocalDate.of(i_anyo, i_mes, i_dia);
+		this.fechaFin = LocalDate.of(f_anyo, f_mes, f_dia);
+		this.horaInicio = LocalTime.of(hora, minutos);
 		this.maximoAlumnos = maximoAlumnos;
 		this.precioMatricula = precioMatricula;
-//		map.put(id, idioma);
 	}
-	
 	
 	/**
 	 * 
@@ -57,6 +56,26 @@ public class Curso {
 	
 	public void setNivel(int nivel){
 		this.nivel = nivel;
+	}
+	
+	/**
+	 * Añade alumnos a la lista de alumnos que se inscriben en el curso.
+	 * @param alumno que se inscribe en el curso.
+	 */
+	public void meteAlumno(Alumno alumno){
+		listaAlumnos.add(alumno);
+	}
+	
+	/**
+	 * Imprime los atributos de curso
+	 * @return atributos de curso
+	 */
+	@Override
+	public String toString(){
+		return "Id curso: " + id + ", Idioma: " + idioma + ", nivel: " + nivel +"\n"+
+				"Fecha de inicio: " + fechaInicio + ", Fecha de fin: " + fechaFin + ", Hora: " + horaInicio +
+				"\n" + "Numero máximo de Alumnos: " + maximoAlumnos + ", Precio de matrícula: " + precioMatricula;
+				
 	}
 	
 	

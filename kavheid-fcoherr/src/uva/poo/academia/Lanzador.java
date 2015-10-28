@@ -6,7 +6,6 @@ public class Lanzador {
 		
 		
 		Alumno uno = new Alumno("nombre", "apellido1", "apellido2", "dni");
-		uno.
 
 	}
 
