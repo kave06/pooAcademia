@@ -10,8 +10,6 @@ import java.util.ArrayList;
  *
  */
 public class Alumno {
-	//arrayList con los cursos>
-	private ArrayList<Curso> listaCurso;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
@@ -26,13 +24,44 @@ public class Alumno {
 	}
 	
 	/**
-	 * Añade a {@code this} al curso.
-	 * @param curso, añade el curso a la lista de cursos del alumno
+	 * Informa de la deuda de {@code Alumno}
+	 * @return la cantidad que debe {@code Alumno}
 	 */
-	public void meteAlumnoACurso(Curso curso){
-		listaCurso.add(curso);
+	public double deuda(){
+		double importeDeuda = 0;
+		for(int i=0; i<Matricula.getListaMatriculas().size(); i++){
+			if(getDni() == Matricula.getListaMatriculas().get(i).getAlumno().getDni()){
+				if( !Matricula.getListaMatriculas().get(i).getPago()){
+					importeDeuda += Matricula.getListaMatriculas().get(i).getCurso().getPrecioMatricula();
+				}
+				
+				
+			}
+		}
+		
+		return importeDeuda;
 	}
 	
+	/**
+	 * Devulve la lista de los cursos en los que se ha matriculado {@code this}
+	 * @return cursos en los que está matriculado {@code this}
+	 */
+	public String listaCursosMatriculados(){
+		String listaCursos = new String();
+		
+		for(int i=0; i<Matricula.getListaMatriculas().size(); i++){
+			if(getDni() == Matricula.getListaMatriculas().get(i).getAlumno().getDni())
+				listaCursos += Matricula.getListaMatriculas().get(i).getCurso().toString() + "\n";
+		}
+		return listaCursos;
+	}
+	
+	/**
+	 * 
+	 */
+	public String getDni(){
+		return dni;
+	}
 	
 	/**
 	 * Informa de la deuda del alumno

@@ -54,9 +54,32 @@ public class Curso {
 		return nivel;
 	}
 	
+	public int getId(){
+		return id;
+	}
+	
+	public double getPrecioMatricula(){
+		return precioMatricula;
+	}
+	
 	public void setNivel(int nivel){
 		this.nivel = nivel;
 	}
+	
+	/**
+	 * Devulve la lista de los cursos en los que se ha matriculado {@code this}
+	 * @return cursos en los que está matriculado {@code this}
+	 */
+	public String listaAlumnosMatriculados(){
+		String listaAlumnos = new String();
+		
+		for(int i=0; i<Matricula.getListaMatriculas().size(); i++){
+			if(getId() == Matricula.getListaMatriculas().get(i).getCurso().getId())
+				listaAlumnos += Matricula.getListaMatriculas().get(i).getAlumno().toString() + "\n";
+		}
+		return listaAlumnos;
+	}
+	
 	
 	/**
 	 * Añade alumnos a la lista de alumnos que se inscriben en el curso.
@@ -65,6 +88,8 @@ public class Curso {
 	public void meteAlumno(Alumno alumno){
 		listaAlumnos.add(alumno);
 	}
+	
+	
 	
 	/**
 	 * Imprime los atributos de curso

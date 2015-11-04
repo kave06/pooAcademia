@@ -15,6 +15,11 @@ public class Matricula {
 	private Alumno alumno;
 	private Curso curso;
 	
+	/**
+	 * Inicializa matricula con parametros.
+	 * @param alumno alumno que va a matricularse.
+	 * @param curso al que se matricula el alumno.
+	 */
 	public Matricula(Alumno alumno, Curso curso){
 		
 		this.alumno = alumno;
@@ -37,6 +42,44 @@ public class Matricula {
 	
 	public void cambiaNivel(){
 		int tmp = 4;
+	}
+	/**
+	 * Devuelve la lista de matriculas de la academia.
+	 * @return lista de matriculas.
+	 */
+	public static ArrayList<Matricula> getListaMatriculas(){
+		return listaMatricula;
+	}
+	
+	/**
+	 * Devuelve el {@code Alumno}
+	 * @return alumno
+	 */
+	public Alumno getAlumno(){
+		return alumno;
+	}
+	
+	/**
+	 * Devuelve el {@code Curso}
+	 * @return curso
+	 */
+	public Curso getCurso(){
+		return curso;
+	}
+	
+	/**
+	 * Devuelve  {@code pago}
+	 * @return devuelve {@code pago}
+	 */
+	public boolean getPago(){
+		return pago;
+	}
+
+	/**
+	 * Cambia de estado el {@code this.pago}
+	 */
+	public void setPago(){
+		pago = true;
 	}
 
 }
