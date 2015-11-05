@@ -18,6 +18,8 @@ public class Lanzador {
 		Matricula m_uno = new Matricula(alumno_uno, c_dos);
 		Matricula m_dos = new Matricula(alumno_uno, c_tres);
 		Matricula m_tres = new Matricula(a_dos, c_tres);
+		
+		c_tres.comprobacionMaxAlumnosCurso();
 //		System.out.println(c_dos.listaAlumnosMatriculados());
 		
 		

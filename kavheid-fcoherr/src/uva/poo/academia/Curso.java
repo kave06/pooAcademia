@@ -20,7 +20,8 @@ public class Curso {
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	private LocalTime horaInicio;
-	private int maximoAlumnos;
+	private int MAXIMO_ALUMNOS;
+	private int alumnosMatriculados;
 	private double precioMatricula;
 	// Guarda el id de los cursos creados. Es unico para todos los cursos.
 	private static ArrayList<Integer> idCursos = new ArrayList<>();
@@ -36,7 +37,7 @@ public class Curso {
 		this.fechaInicio = LocalDate.of(i_anyo, i_mes, i_dia);
 		this.fechaFin = LocalDate.of(f_anyo, f_mes, f_dia);
 		this.horaInicio = LocalTime.of(hora, minutos);
-		this.maximoAlumnos = maximoAlumnos;
+		this.MAXIMO_ALUMNOS = maximoAlumnos;
 		this.precioMatricula = precioMatricula;
 	}
 	
@@ -62,9 +63,35 @@ public class Curso {
 		return precioMatricula;
 	}
 	
+	public int getAlumnosMatriculados(){
+		return alumnosMatriculados;
+	}
+	
+	public int getMAXIMO_ALUMNOS(){
+		return MAXIMO_ALUMNOS;
+	}
+	
 	public void setNivel(int nivel){
 		this.nivel = nivel;
 	}
+	
+	public void setAlumnosMatriculados(int matriculados){
+		alumnosMatriculados = matriculados;
+	}
+	
+	/**
+	 * Añade un alumno al numero de alumnos matruculados en {@code this Curso}
+	 */
+	public void anyadirAlumnosCurso(){
+		setAlumnosMatriculados(getAlumnosMatriculados()+1);
+	}
+	
+	public boolean comprobacionMaxAlumnosCurso(){
+		if(getMAXIMO_ALUMNOS() > getAlumnosMatriculados())
+			return true;
+		else return false;
+	}
+	
 	
 	/**
 	 * Devulve la lista de los cursos en los que se ha matriculado {@code this}
@@ -99,7 +126,7 @@ public class Curso {
 	public String toString(){
 		return "Id curso: " + id + ", Idioma: " + idioma + ", nivel: " + nivel +"\n"+
 				"Fecha de inicio: " + fechaInicio + ", Fecha de fin: " + fechaFin + ", Hora: " + horaInicio +
-				"\n" + "Numero máximo de Alumnos: " + maximoAlumnos + ", Precio de matrícula: " + precioMatricula;
+				"\n" + "Numero máximo de Alumnos: " + MAXIMO_ALUMNOS + ", Precio de matrícula: " + precioMatricula;
 				
 	}
 	

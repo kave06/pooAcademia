@@ -2,6 +2,8 @@ package uva.poo.academia;
 
 import java.util.ArrayList;
 
+import javax.naming.SizeLimitExceededException;
+
 import uva.poo.academia.Curso.Idioma;
 
 public class Matricula {
@@ -20,15 +22,31 @@ public class Matricula {
 	 * @param alumno alumno que va a matricularse.
 	 * @param curso al que se matricula el alumno.
 	 */
+	// TODO que hacemos si no puede matricularse
+	// TODO geters en el constructor??
 	public Matricula(Alumno alumno, Curso curso){
 		
-		this.alumno = alumno;
-		this.curso = curso;
+		if (curso.comprobacionMaxAlumnosCurso())
+		{
+			setAlumno(alumno);
+			setCurso(curso);
+			getCurso().anyadirAlumnosCurso();
+			numeroMatricula = idMatricula.size() + 1;
+			idMatricula.add(numeroMatricula);
+			pago = false;
+			listaMatricula.add(this);
+		}
 		
-		numeroMatricula = idMatricula.size() + 1;
-		idMatricula.add(numeroMatricula);
-		pago = false;
-		listaMatricula.add(this);
+	}
+	
+	public void eliminaMatricula(){
+		for(int i=0; i< idMatricula.size(); i++){
+			if(idMatricula.get(i) == numeroMatricula) idMatricula.remove(i);
+		}
+//		for(i=0; i< listaMatricula.size(); i++){
+//			
+//			if(listaMatricula.get(i))
+//		}
 	}
 	
 	public void imprimeMatriculas(){
@@ -59,12 +77,20 @@ public class Matricula {
 		return alumno;
 	}
 	
+	public void setAlumno(Alumno alumno){
+		this.alumno = alumno;
+	}
+	
 	/**
 	 * Devuelve el {@code Curso}
 	 * @return curso
 	 */
 	public Curso getCurso(){
 		return curso;
+	}
+	
+	public void setCurso(Curso curso){
+		this.curso = curso;
 	}
 	
 	/**
