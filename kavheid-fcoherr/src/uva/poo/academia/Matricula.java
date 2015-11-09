@@ -30,13 +30,20 @@ public class Matricula {
 		{
 			setAlumno(alumno);
 			setCurso(curso);
-			getCurso().anyadirAlumnosCurso();
+			getCurso().añadirAlumnosCurso();
 			numeroMatricula = idMatricula.size() + 1;
 			idMatricula.add(numeroMatricula);
 			pago = false;
-			listaMatricula.add(this);
+			añadeMatricula();
 		}
 		
+	}
+	
+	/**
+	 * Añade {@code this Matricula} a listaMatricula
+	 */
+	public void añadeMatricula(){
+		listaMatricula.add(this);
 	}
 	
 	public void eliminaMatricula(){

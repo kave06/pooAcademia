@@ -32,18 +32,15 @@ public class Alumno {
 		for(int i=0; i<Matricula.getListaMatriculas().size(); i++){
 			if(getDni() == Matricula.getListaMatriculas().get(i).getAlumno().getDni()){
 				if( !Matricula.getListaMatriculas().get(i).getPago()){
-					importeDeuda += Matricula.getListaMatriculas().get(i).getCurso().getPrecioMatricula();
+					importeDeuda += Matricula.getListaMatriculas().get(i).getCurso().getPrecioCurso();
 				}
-				
-				
 			}
 		}
-		
 		return importeDeuda;
 	}
 	
 	/**
-	 * Devulve la lista de los cursos en los que se ha matriculado {@code this}
+	 * Devulve la lista de los cursos en los que se ha matriculado {@code Alumno}
 	 * @return cursos en los que está matriculado {@code this}
 	 */
 	public String listaCursosMatriculados(){
